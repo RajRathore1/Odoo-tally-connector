@@ -2,35 +2,42 @@
 
 <div class="row">
 <div class="col-md-12 text-center">
-<img src="banner.png" class="img img-responsive" alt="Odoo Tally Connector by DigiMonk Technologies" style="max-width:100%;"/>
+<img src="banner.png" class="img img-responsive" alt="Odoo Tally Connector by DigiMonk Technologies" style="max-width:100%;margin:0 auto;"/>
 </div>
 </div>
 
-<div class="row" style="margin-top:24px;">
-<div class="col-md-12 text-center">
-<h1>One entry in Odoo. One voucher in Tally. Never typed twice.</h1>
+<div class="jumbotron text-center" style="margin-top:24px;">
+<h1>One entry in Odoo.<br/>One voucher in Tally.<br/>Never typed twice.</h1>
 <p class="lead">
 Post an invoice, bill, payment, journal or note in Odoo and it lands in Tally on its own &mdash;
 matched by a stable GUID so re-running a sync confirms a voucher, never duplicates it.
 </p>
-<p><strong>Version</strong> 19.0.1.1.0 &nbsp;|&nbsp; <strong>License</strong> AGPL-3 &nbsp;|&nbsp; <strong>Category</strong> Accounting / Integrations</p>
-</div>
+<p>
+<span class="label label-default">Version 19.0.1.1.0</span>&nbsp;
+<span class="label label-default">License AGPL-3</span>&nbsp;
+<span class="label label-default">Accounting / Integrations</span>
+</p>
 </div>
 
-<div class="row" style="margin-top:16px;">
+<div class="row">
 <div class="col-md-8 col-md-offset-2">
-<table class="table table-bordered">
-<caption>Sales Voucher No. 214 &mdash; Synced</caption>
+<div class="panel panel-success">
+<div class="panel-heading">
+<strong>Sales Voucher No. 214</strong>
+<span class="label label-success pull-right">&#10003; Synced</span>
+</div>
+<table class="table" style="margin-bottom:0;">
 <thead>
-<tr><th>Particulars</th><th>Debit</th><th>Credit</th></tr>
+<tr><th>Particulars</th><th class="text-right">Debit</th><th class="text-right">Credit</th></tr>
 </thead>
 <tbody>
-<tr><td>Sundry Debtors A/c<br/><small>Matched by GUID &middot; Rahul Traders</small></td><td>12,500.00</td><td>&mdash;</td></tr>
-<tr><td>Sales A/c<br/><small>Revenue ledger, auto-mapped</small></td><td>&mdash;</td><td>10,593.22</td></tr>
-<tr><td>Output CGST/SGST A/c<br/><small>Tax ledger, auto-mapped</small></td><td>&mdash;</td><td>1,906.78</td></tr>
+<tr><td>Sundry Debtors A/c<br/><small class="text-muted">Matched by GUID &middot; Rahul Traders</small></td><td class="text-right">12,500.00</td><td class="text-right">&mdash;</td></tr>
+<tr><td>Sales A/c<br/><small class="text-muted">Revenue ledger, auto-mapped</small></td><td class="text-right">&mdash;</td><td class="text-right"><strong>10,593.22</strong></td></tr>
+<tr><td>Output CGST/SGST A/c<br/><small class="text-muted">Tax ledger, auto-mapped</small></td><td class="text-right">&mdash;</td><td class="text-right"><strong>1,906.78</strong></td></tr>
 </tbody>
 </table>
-<p class="text-center text-muted"><small>Queued 09:14:02 &rarr; Confirmed by Tally 09:14:07</small></p>
+<div class="panel-footer text-muted"><small>Queued 09:14:02 &rarr; Confirmed by Tally 09:14:07</small></div>
+</div>
 </div>
 </div>
 
@@ -39,103 +46,137 @@ matched by a stable GUID so re-running a sync confirms a voucher, never duplicat
 <div class="row">
 <div class="col-md-6">
 <h2>Built for the accountant, not just the API</h2>
-<p>
+<p class="text-muted">
 Most Odoo&ndash;Tally bridges stop at &ldquo;the data moved.&rdquo; This one is built around what
 actually breaks integrations in production: duplicate vouchers, silent failures, and connections
 that only work when everyone's on the same VPN.
 </p>
-<ul>
-<li><strong>Native Tally XML</strong> &mdash; talks HTTP/XML directly, no middleware, no CSV round-trips.</li>
-<li><strong>GUID-matched sync</strong> &mdash; re-running a sync confirms a voucher, never duplicates it, even after a dropped connection.</li>
-<li><strong>Direct or Agent connectivity</strong> &mdash; works even with no VPN or open inbound port.</li>
-<li><strong>Nothing silent</strong> &mdash; every automatic adjustment lands in an audit log, not just a log file.</li>
-</ul>
+<div class="list-group">
+<div class="list-group-item"><strong>Native Tally XML</strong> &mdash; talks HTTP/XML directly, no middleware, no CSV round-trips.</div>
+<div class="list-group-item"><strong>GUID-matched sync</strong> &mdash; re-running a sync confirms a voucher, never duplicates it, even after a dropped connection.</div>
+<div class="list-group-item"><strong>Direct or Agent connectivity</strong> &mdash; works even with no VPN or open inbound port.</div>
+<div class="list-group-item"><strong>Nothing silent</strong> &mdash; every automatic adjustment lands in an audit log, not just a log file.</div>
+</div>
 </div>
 <div class="col-md-6">
 <h2>A queue, not a gamble</h2>
-<p>
+<p class="text-muted">
 Every sync is handed to a background job the moment you post a document &mdash; it never blocks
 your screen waiting on a slow network or an idle Tally window. The job is retried on your terms,
 and its outcome is always written back onto the exact record you posted, so what Odoo shows
 always matches what actually happened.
 </p>
-<p><strong>Queued instantly</strong> &mdash; posting a document never waits on Tally to respond.</p>
+<div class="alert alert-info">
+<strong>Queued instantly</strong> &mdash; posting a document never waits on Tally to respond.
 </div>
-</div>
-
-<hr/>
-
-<div class="row">
-<div class="col-md-12">
-<h2 class="text-center">Eight things it actually does</h2>
-<p class="text-center text-muted">No roadmap items, no &ldquo;coming soon&rdquo; &mdash; every item below ships today and runs against real Tally instances in production.</p>
-</div>
-</div>
-<div class="row">
-<div class="col-md-6">
-<h4>1. Bidirectional voucher sync</h4>
-<p>Sales, purchase, credit/debit notes and receipts/payments sync both ways with deterministic GUIDs.</p>
-</div>
-<div class="col-md-6">
-<h4>2. Journal &amp; Contra vouchers <em>(New)</em></h4>
-<p>Miscellaneous journal entries and Cash/Bank fund transfers sync out to Tally alongside your regular vouchers.</p>
-</div>
-</div>
-<div class="row">
-<div class="col-md-6">
-<h4>3. Master data sync</h4>
-<p>Products and contacts stay aligned automatically &mdash; create once, ready on both sides.</p>
-</div>
-<div class="col-md-6">
-<h4>4. Stock groups &amp; units <em>(New)</em></h4>
-<p>Product categories and units of measure map onto Tally's own Stock Groups &mdash; not just the item itself.</p>
-</div>
-</div>
-<div class="row">
-<div class="col-md-6">
-<h4>5. Live sync dashboard</h4>
-<p>Connection health, category breakdown, and recent errors &mdash; with one-click retry.</p>
-</div>
-<div class="col-md-6">
-<h4>6. Stock reconciliation</h4>
-<p>Flags Odoo-vs-Tally quantity mismatches before a small gap becomes a real problem.</p>
-</div>
-</div>
-<div class="row">
-<div class="col-md-6">
-<h4>7. Two connectivity modes</h4>
-<p>Direct network access, or a lightweight outbound-only Agent &mdash; no VPN required.</p>
-</div>
-<div class="col-md-6">
-<h4>8. Never blocks, never doubles <em>(New)</em></h4>
-<p>Syncs queue instantly and retry safely in the background &mdash; a slow network never freezes your screen or files a voucher twice.</p>
 </div>
 </div>
 
 <hr/>
 
 <div class="row">
+<div class="col-md-12 text-center">
+<h2>Eight things it actually does</h2>
+<p class="text-muted">No roadmap items, no &ldquo;coming soon&rdquo; &mdash; every item below ships today and runs against real Tally instances in production.</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3">
+<div class="panel panel-default">
+<div class="panel-body">
+<h4>Bidirectional voucher sync</h4>
+<p class="text-muted">Sales, purchase, credit/debit notes and receipts/payments sync both ways with deterministic GUIDs.</p>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="panel panel-warning">
+<div class="panel-body">
+<h4>Journal &amp; Contra vouchers <span class="label label-warning">New</span></h4>
+<p class="text-muted">Miscellaneous journal entries and Cash/Bank fund transfers sync out to Tally alongside your regular vouchers.</p>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="panel panel-default">
+<div class="panel-body">
+<h4>Master data sync</h4>
+<p class="text-muted">Products and contacts stay aligned automatically &mdash; create once, ready on both sides.</p>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="panel panel-warning">
+<div class="panel-body">
+<h4>Stock groups &amp; units <span class="label label-warning">New</span></h4>
+<p class="text-muted">Product categories and units of measure map onto Tally's own Stock Groups &mdash; not just the item itself.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3">
+<div class="panel panel-default">
+<div class="panel-body">
+<h4>Live sync dashboard</h4>
+<p class="text-muted">Connection health, category breakdown, and recent errors &mdash; with one-click retry.</p>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="panel panel-default">
+<div class="panel-body">
+<h4>Stock reconciliation</h4>
+<p class="text-muted">Flags Odoo-vs-Tally quantity mismatches before a small gap becomes a real problem.</p>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="panel panel-default">
+<div class="panel-body">
+<h4>Two connectivity modes</h4>
+<p class="text-muted">Direct network access, or a lightweight outbound-only Agent &mdash; no VPN required.</p>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="panel panel-warning">
+<div class="panel-body">
+<h4>Never blocks, never doubles <span class="label label-warning">New</span></h4>
+<p class="text-muted">Syncs queue instantly and retry safely in the background &mdash; a slow network never freezes your screen or files a voucher twice.</p>
+</div>
+</div>
+</div>
+</div>
+
+<hr/>
+
+<div class="row">
+<div class="col-md-12 text-center">
+<h2>What syncs, and which way</h2>
+<p class="text-muted">Every row below is a real action inside the connector today &mdash; not a roadmap promise.</p>
+</div>
+</div>
+<div class="row">
 <div class="col-md-12">
-<h2 class="text-center">What syncs, and which way</h2>
-<p class="text-center text-muted">Every row below is a real action inside the connector today &mdash; not a roadmap promise.</p>
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped table-hover">
 <thead>
 <tr><th>Entity / Action</th><th>Tally &rarr; Odoo</th><th>Odoo &rarr; Tally</th><th>Notes</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>Stock items (Products)</strong></td><td>Yes</td><td>Yes</td><td>Matched by GUID, rename-aware</td></tr>
-<tr><td><strong>Party ledgers (Contacts)</strong></td><td>Yes</td><td>Yes</td><td>Customers &amp; vendors</td></tr>
-<tr><td><strong>Sales vouchers (Invoices)</strong></td><td>Yes</td><td>Yes</td><td>Tax &amp; revenue ledgers auto-mapped</td></tr>
-<tr><td><strong>Purchase vouchers (Bills)</strong></td><td>Yes</td><td>Yes</td><td>&nbsp;</td></tr>
-<tr><td><strong>Credit / debit notes</strong></td><td>Yes</td><td>Yes</td><td>&nbsp;</td></tr>
-<tr><td><strong>Receipts / payments</strong></td><td>Yes</td><td>Yes</td><td>&nbsp;</td></tr>
-<tr><td><strong>Journal vouchers</strong> <em>(New)</em></td><td>&mdash;</td><td>Yes</td><td>Miscellaneous journal entries</td></tr>
-<tr><td><strong>Contra vouchers</strong> <em>(New)</em></td><td>&mdash;</td><td>Yes</td><td>Cash/Bank fund transfers</td></tr>
-<tr><td><strong>Opening balances</strong> <em>(New)</em></td><td>&mdash;</td><td>Yes</td><td>One-time onboarding push</td></tr>
-<tr><td><strong>Stock groups &amp; units</strong> <em>(New)</em></td><td>&mdash;</td><td>Yes</td><td>Product categories &amp; UOMs as Tally masters</td></tr>
-<tr><td><strong>Account / Tax / Journal mapping</strong></td><td>Suggest</td><td>&mdash;</td><td>One-click name-match suggestions</td></tr>
-<tr><td><strong>Stock reconciliation</strong></td><td>Compare</td><td>&mdash;</td><td>Alerts on mismatch, doesn't auto-correct</td></tr>
-<tr><td><strong>Ledger / company lookup</strong></td><td>Fetch</td><td>&mdash;</td><td>Setup &amp; troubleshooting utility</td></tr>
+<tr><td><strong>Stock items (Products)</strong></td><td><span class="label label-success">Yes</span></td><td><span class="label label-success">Yes</span></td><td class="text-muted">Matched by GUID, rename-aware</td></tr>
+<tr><td><strong>Party ledgers (Contacts)</strong></td><td><span class="label label-success">Yes</span></td><td><span class="label label-success">Yes</span></td><td class="text-muted">Customers &amp; vendors</td></tr>
+<tr><td><strong>Sales vouchers (Invoices)</strong></td><td><span class="label label-success">Yes</span></td><td><span class="label label-success">Yes</span></td><td class="text-muted">Tax &amp; revenue ledgers auto-mapped</td></tr>
+<tr><td><strong>Purchase vouchers (Bills)</strong></td><td><span class="label label-success">Yes</span></td><td><span class="label label-success">Yes</span></td><td>&nbsp;</td></tr>
+<tr><td><strong>Credit / debit notes</strong></td><td><span class="label label-success">Yes</span></td><td><span class="label label-success">Yes</span></td><td>&nbsp;</td></tr>
+<tr><td><strong>Receipts / payments</strong></td><td><span class="label label-success">Yes</span></td><td><span class="label label-success">Yes</span></td><td>&nbsp;</td></tr>
+<tr><td><strong>Journal vouchers</strong> <span class="label label-warning">New</span></td><td><span class="label label-default">&mdash;</span></td><td><span class="label label-success">Yes</span></td><td class="text-muted">Miscellaneous journal entries</td></tr>
+<tr><td><strong>Contra vouchers</strong> <span class="label label-warning">New</span></td><td><span class="label label-default">&mdash;</span></td><td><span class="label label-success">Yes</span></td><td class="text-muted">Cash/Bank fund transfers</td></tr>
+<tr><td><strong>Opening balances</strong> <span class="label label-warning">New</span></td><td><span class="label label-default">&mdash;</span></td><td><span class="label label-success">Yes</span></td><td class="text-muted">One-time onboarding push</td></tr>
+<tr><td><strong>Stock groups &amp; units</strong> <span class="label label-warning">New</span></td><td><span class="label label-default">&mdash;</span></td><td><span class="label label-success">Yes</span></td><td class="text-muted">Product categories &amp; UOMs as Tally masters</td></tr>
+<tr><td><strong>Account / Tax / Journal mapping</strong></td><td><span class="label label-info">Suggest</span></td><td><span class="label label-default">&mdash;</span></td><td class="text-muted">One-click name-match suggestions</td></tr>
+<tr><td><strong>Stock reconciliation</strong></td><td><span class="label label-info">Compare</span></td><td><span class="label label-default">&mdash;</span></td><td class="text-muted">Alerts on mismatch, doesn't auto-correct</td></tr>
+<tr><td><strong>Ledger / company lookup</strong></td><td><span class="label label-info">Fetch</span></td><td><span class="label label-default">&mdash;</span></td><td class="text-muted">Setup &amp; troubleshooting utility</td></tr>
 </tbody>
 </table>
 </div>
@@ -144,74 +185,106 @@ always matches what actually happened.
 <hr/>
 
 <div class="row">
-<div class="col-md-12">
-<h2 class="text-center">Pick the topology that fits your network</h2>
-<p class="text-center text-muted">Both modes run the same sync engine underneath &mdash; the only difference is how the request reaches Tally.</p>
+<div class="col-md-12 text-center">
+<h2>Pick the topology that fits your network</h2>
+<p class="text-muted">Both modes run the same sync engine underneath &mdash; the only difference is how the request reaches Tally.</p>
 </div>
 </div>
 <div class="row">
 <div class="col-md-6">
-<h4>Direct &mdash; Odoo connects to Tally</h4>
-<p>Best when Odoo already has private network access to the Tally machine &mdash; over a site VPN, Tailscale, or a shared LAN.</p>
-<ul>
-<li>No extra software to install on the Tally PC</li>
-<li>Odoo calls Tally's HTTP/XML listener directly</li>
-<li>Requires the network path to already exist</li>
+<div class="panel panel-success">
+<div class="panel-heading"><strong>DIRECT</strong> &mdash; Odoo connects to Tally</div>
+<div class="panel-body">
+<p class="text-muted">Best when Odoo already has private network access to the Tally machine &mdash; over a site VPN, Tailscale, or a shared LAN.</p>
+<ul class="list-unstyled">
+<li>&#10003; No extra software to install on the Tally PC</li>
+<li>&#10003; Odoo calls Tally's HTTP/XML listener directly</li>
+<li>&#10003; Requires the network path to already exist</li>
 </ul>
 </div>
+</div>
+</div>
 <div class="col-md-6">
-<h4>Agent &mdash; Tally's PC connects to Odoo</h4>
-<p>Best when there's no VPN and you don't want to open an inbound port &mdash; the Agent only ever calls out, and queues work the moment it comes online.</p>
-<ul>
-<li>One small program, no installer, no admin rights</li>
-<li>Polls Odoo for work, talks to Tally on localhost</li>
-<li>Works behind any firewall or NAT unmodified</li>
+<div class="panel panel-danger">
+<div class="panel-heading"><strong>AGENT</strong> &mdash; Tally's PC connects to Odoo</div>
+<div class="panel-body">
+<p class="text-muted">Best when there's no VPN and you don't want to open an inbound port &mdash; the Agent only ever calls out, and queues work the moment it comes online.</p>
+<ul class="list-unstyled">
+<li>&#10003; One small program, no installer, no admin rights</li>
+<li>&#10003; Polls Odoo for work, talks to Tally on localhost</li>
+<li>&#10003; Works behind any firewall or NAT unmodified</li>
 </ul>
+</div>
+</div>
 </div>
 </div>
 
 <hr/>
 
 <div class="row">
-<div class="col-md-12">
-<h2 class="text-center">Six steps, one working sync</h2>
-<p class="text-center text-muted">This is the Agent path &mdash; no network changes needed. Direct mode skips straight to filling in Tally's host and port.</p>
+<div class="col-md-12 text-center">
+<h2>Six steps, one working sync</h2>
+<p class="text-muted">This is the Agent path &mdash; no network changes needed. Direct mode skips straight to filling in Tally's host and port.</p>
+</div>
+</div>
 
-<h4>1. Create a connection in Odoo</h4>
+<div class="panel panel-default">
+<div class="panel-heading"><span class="badge">1</span>&nbsp; <strong>Create a connection in Odoo</strong></div>
+<div class="panel-body">
 <ul>
 <li>Open the <strong>Tally Connector</strong> app, go to Tally Connections</li>
 <li>Create a new connection, name it, and select your Company</li>
 <li>Set <code>Connection Mode</code> to &ldquo;Agent (preview)&rdquo; and save</li>
 </ul>
+</div>
+</div>
 
-<h4>2. Generate your Agent token</h4>
+<div class="panel panel-default">
+<div class="panel-heading"><span class="badge">2</span>&nbsp; <strong>Generate your Agent token</strong></div>
+<div class="panel-body">
 <ul>
 <li>Click <strong>Generate Agent Token</strong> on the connection</li>
 <li>Copy the token immediately &mdash; it's shown once and can't be retrieved again</li>
 <li>Generating a new token later immediately revokes this one &mdash; the Agent using it will need the new token too</li>
 </ul>
+</div>
+</div>
 
-<h4>3. Download the Agent</h4>
-<p>On the PC where Tally actually runs, download the Agent from:<br/>
-<code>https://digimonk.in/agent-download</code></p>
+<div class="panel panel-default">
+<div class="panel-heading"><span class="badge">3</span>&nbsp; <strong>Download the Agent</strong></div>
+<div class="panel-body">
+<p>On the PC where Tally actually runs, download the Agent from:</p>
+<p><code>https://digimonk.in/agent-download</code></p>
 <ul><li>Extract the zip to any folder</li></ul>
+</div>
+</div>
 
-<h4>4. Run the setup wizard</h4>
+<div class="panel panel-default">
+<div class="panel-heading"><span class="badge">4</span>&nbsp; <strong>Run the setup wizard</strong></div>
+<div class="panel-body">
 <ul>
 <li>Double-click <code>run_agent.bat</code></li>
 <li>Enter your Odoo URL, database name, and the token from step 2</li>
 <li>Tally host/port defaults to <code>localhost:9000</code> when it's the same PC</li>
 <li>The wizard writes <code>config.json</code> for you</li>
 </ul>
+</div>
+</div>
 
-<h4>5. Confirm it's working</h4>
+<div class="panel panel-default">
+<div class="panel-heading"><span class="badge">5</span>&nbsp; <strong>Confirm it's working</strong></div>
+<div class="panel-body">
 <ul>
 <li>The Agent window shows &ldquo;Registered&hellip;&rdquo; and &ldquo;Local Tally is now reachable&rdquo; once setup completes</li>
 <li>In Odoo, the connection shows <strong>Online</strong> and <strong>Tally Reachable</strong> in green under Agent Devices</li>
 <li>Click <strong>Test Connection</strong> &mdash; it shows &ldquo;Testing&rdquo; for a few seconds, then settles to &ldquo;Connected&rdquo;</li>
 </ul>
+</div>
+</div>
 
-<h4>6. Keep it running automatically</h4>
+<div class="panel panel-default">
+<div class="panel-heading"><span class="badge">6</span>&nbsp; <strong>Keep it running automatically</strong></div>
+<div class="panel-body">
 <ul>
 <li>Press <code>Win+R</code>, type <code>shell:startup</code>, press Enter</li>
 <li>Add a shortcut to <code>run_agent.bat</code> in that folder</li>
@@ -223,25 +296,35 @@ always matches what actually happened.
 <hr/>
 
 <div class="row">
-<div class="col-md-12">
-<h2 class="text-center">The five messages you'll actually see</h2>
-<p class="text-center text-muted">Every state the Agent or connection can show, and exactly what to do about it.</p>
-
-<h4>Connection shows &ldquo;Testing&rdquo; and doesn't change</h4>
-<p>This is normal, not stuck. Clicking Test Connection queues a check for the Agent to pick up &mdash; it settles to Connected or Failed within a few seconds. Refresh the page once, rather than clicking the button again.</p>
-
-<h4>Agent window says &ldquo;Invalid or revoked token&rdquo;</h4>
-<p>A new Agent Token was generated for this connection since this Agent last started &mdash; generating a token always revokes the previous one immediately, on purpose. Generate a fresh token, update <code>config.json</code>, and restart <code>run_agent.bat</code>.</p>
-
-<h4>Connection shows &ldquo;Online&rdquo; but nothing is syncing</h4>
-<p>Check <strong>Enabled for Sync</strong> is switched on, and open <strong>View Agent Sync Timeline</strong> &mdash; a record stuck in &ldquo;Queued&rdquo; for more than a minute usually means the Agent window has been closed.</p>
-
-<h4>&ldquo;Could not reach Odoo to poll (502 Bad Gateway)&rdquo; in the Agent window</h4>
-<p>A brief, one-off gap reaching your Odoo server. The Agent retries on its own every few seconds; no action needed unless it repeats for more than a minute.</p>
-
-<h4>A record shows &ldquo;Failed&rdquo; with a real error message</h4>
-<p>A genuine rejection from Tally itself (a missing ledger, a closed period, a mismatched Stock Item). Fix it in Tally or in the mapping, then use the record's own <strong>Sync to Tally</strong> button to retry &mdash; safe to retry any number of times.</p>
+<div class="col-md-12 text-center">
+<h2>The five messages you'll actually see</h2>
+<p class="text-muted">Every state the Agent or connection can show, and exactly what to do about it.</p>
 </div>
+</div>
+
+<div class="panel panel-info">
+<div class="panel-heading">Connection shows &ldquo;Testing&rdquo; and doesn't change</div>
+<div class="panel-body">This is normal, not stuck. Clicking Test Connection queues a check for the Agent to pick up &mdash; it settles to Connected or Failed within a few seconds. Refresh the page once, rather than clicking the button again.</div>
+</div>
+
+<div class="panel panel-info">
+<div class="panel-heading">Agent window says &ldquo;Invalid or revoked token&rdquo;</div>
+<div class="panel-body">A new Agent Token was generated for this connection since this Agent last started &mdash; generating a token always revokes the previous one immediately, on purpose. Generate a fresh token, update <code>config.json</code>, and restart <code>run_agent.bat</code>.</div>
+</div>
+
+<div class="panel panel-info">
+<div class="panel-heading">Connection shows &ldquo;Online&rdquo; but nothing is syncing</div>
+<div class="panel-body">Check <strong>Enabled for Sync</strong> is switched on, and open <strong>View Agent Sync Timeline</strong> &mdash; a record stuck in &ldquo;Queued&rdquo; for more than a minute usually means the Agent window has been closed.</div>
+</div>
+
+<div class="panel panel-info">
+<div class="panel-heading">&ldquo;Could not reach Odoo to poll (502 Bad Gateway)&rdquo; in the Agent window</div>
+<div class="panel-body">A brief, one-off gap reaching your Odoo server. The Agent retries on its own every few seconds; no action needed unless it repeats for more than a minute.</div>
+</div>
+
+<div class="panel panel-info">
+<div class="panel-heading">A record shows &ldquo;Failed&rdquo; with a real error message</div>
+<div class="panel-body">A genuine rejection from Tally itself (a missing ledger, a closed period, a mismatched Stock Item). Fix it in Tally or in the mapping, then use the record's own <strong>Sync to Tally</strong> button to retry &mdash; safe to retry any number of times.</div>
 </div>
 
 <hr/>
@@ -249,7 +332,7 @@ always matches what actually happened.
 <div class="row">
 <div class="col-md-4">
 <h4>DigiMonk Technologies</h4>
-<p>
+<p class="text-muted">
 Odoo Tally Connector &mdash; v19.0.1.1.0<br/>
 AGPL-3 &middot; Accounting / Integrations<br/>
 <a href="https://digimonk.in/" target="_blank">digimonk.in</a>
@@ -257,14 +340,14 @@ AGPL-3 &middot; Accounting / Integrations<br/>
 </div>
 <div class="col-md-4">
 <h4>Compatibility</h4>
-<p>
+<p class="text-muted">
 Odoo 19<br/>
 Tally Prime &middot; Tally ERP 9
 </p>
 </div>
 <div class="col-md-4">
 <h4>Support</h4>
-<p>
+<p class="text-muted">
 Contact DigiMonk for deployment help, custom mapping or onboarding.<br/>
 Software Technology Parks Of India, Gwalior, Madhya Pradesh, 474005 India<br/>
 Tel: +91 77228-45500
