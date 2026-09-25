@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_partner_form_tally">
+        <field name="name">res.partner.form.tally</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Tally" name="tally_sync" invisible="not customer_rank and not supplier_rank">
+                    <group>
+                        <button name="action_sync_to_tally" string="Sync to Tally" type="object" class="btn-primary"/>
+                    </group>
+                    <group>
+                        <group string="Sync Status">
+                            <field name="tally_sync_status" widget="badge"/>
+                            <field name="tally_last_sync_at"/>
+                            <field name="tally_sync_attempts"/>
+                        </group>
+                        <group string="Tally Identity">
+                            <field name="tally_guid" readonly="tally_sync_status == 'success'"/>
+                            <field name="tally_synced_name"/>
+                        </group>
+                    </group>
+                    <group string="Last Error" invisible="not tally_last_sync_error">
+                        <field name="tally_last_sync_error" nolabel="1" widget="text" readonly="1"/>
+                    </group>
+                    <div class="text-muted" invisible="tally_sync_status == 'success'">
+                        Manually pasting a GUID here (from "Fetch Ledgers" on the connection) links this
+                        contact to a specific Tally ledger - use this to resolve an ambiguous name match
+                        when two distinct Odoo contacts share the same name.
+                    </div>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

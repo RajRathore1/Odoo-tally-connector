@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_account_payment_form_tally">
+        <field name="name">account.payment.form.tally</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <notebook name="payment_notebook" position="inside">
+                <page string="Tally" name="tally_sync">
+                    <group>
+                        <button name="action_sync_to_tally" string="Sync to Tally" type="object"
+                                class="btn-primary" invisible="state not in ('paid', 'reconciled')"/>
+                        <div class="text-muted" invisible="state in ('paid', 'reconciled')">
+                            Payment must be confirmed before it can sync to Tally.
+                        </div>
+                    </group>
+                    <group>
+                        <group string="Sync Status">
+                            <field name="tally_sync_status" widget="badge"/>
+                            <field name="tally_last_sync_at"/>
+                            <field name="tally_sync_attempts"/>
+                        </group>
+                        <group string="Tally Identity">
+                            <field name="tally_guid" readonly="tally_sync_status == 'success'"/>
+                        </group>
+                    </group>
+                    <group string="Last Error" invisible="not tally_last_sync_error">
+                        <field name="tally_last_sync_error" nolabel="1" widget="text" readonly="1"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

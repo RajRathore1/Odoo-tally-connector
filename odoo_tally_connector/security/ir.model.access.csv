@@ -1,0 +1,55 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tally_connection_admin,tally.connection - Admin,model_tally_connection,group_tally_admin,1,1,1,1
+access_tally_connection_operator,tally.connection - Sync Operator,model_tally_connection,group_tally_operator,1,0,0,0
+access_tally_connection_system,tally.connection - System Administrator,model_tally_connection,base.group_system,1,1,1,1
+access_tally_product_import_wizard_admin,tally.product.import.wizard - Admin,model_tally_product_import_wizard,group_tally_admin,1,1,1,1
+access_tally_product_import_wizard_operator,tally.product.import.wizard - Sync Operator,model_tally_product_import_wizard,group_tally_operator,1,1,1,0
+access_tally_product_import_wizard_system,tally.product.import.wizard - System Administrator,model_tally_product_import_wizard,base.group_system,1,1,1,1
+access_tally_partner_import_wizard_admin,tally.partner.import.wizard - Admin,model_tally_partner_import_wizard,group_tally_admin,1,1,1,1
+access_tally_partner_import_wizard_operator,tally.partner.import.wizard - Sync Operator,model_tally_partner_import_wizard,group_tally_operator,1,1,1,0
+access_tally_partner_import_wizard_system,tally.partner.import.wizard - System Administrator,model_tally_partner_import_wizard,base.group_system,1,1,1,1
+access_tally_invoice_import_wizard_admin,tally.invoice.import.wizard - Admin,model_tally_invoice_import_wizard,group_tally_admin,1,1,1,1
+access_tally_invoice_import_wizard_operator,tally.invoice.import.wizard - Sync Operator,model_tally_invoice_import_wizard,group_tally_operator,1,1,1,0
+access_tally_invoice_import_wizard_system,tally.invoice.import.wizard - System Administrator,model_tally_invoice_import_wizard,base.group_system,1,1,1,1
+access_tally_bill_import_wizard_admin,tally.bill.import.wizard - Admin,model_tally_bill_import_wizard,group_tally_admin,1,1,1,1
+access_tally_bill_import_wizard_operator,tally.bill.import.wizard - Sync Operator,model_tally_bill_import_wizard,group_tally_operator,1,1,1,0
+access_tally_bill_import_wizard_system,tally.bill.import.wizard - System Administrator,model_tally_bill_import_wizard,base.group_system,1,1,1,1
+access_tally_note_import_wizard_admin,tally.note.import.wizard - Admin,model_tally_note_import_wizard,group_tally_admin,1,1,1,1
+access_tally_note_import_wizard_operator,tally.note.import.wizard - Sync Operator,model_tally_note_import_wizard,group_tally_operator,1,1,1,0
+access_tally_note_import_wizard_system,tally.note.import.wizard - System Administrator,model_tally_note_import_wizard,base.group_system,1,1,1,1
+access_tally_payment_import_wizard_admin,tally.payment.import.wizard - Admin,model_tally_payment_import_wizard,group_tally_admin,1,1,1,1
+access_tally_payment_import_wizard_operator,tally.payment.import.wizard - Sync Operator,model_tally_payment_import_wizard,group_tally_operator,1,1,1,0
+access_tally_payment_import_wizard_system,tally.payment.import.wizard - System Administrator,model_tally_payment_import_wizard,base.group_system,1,1,1,1
+access_tally_stock_reconciliation_wizard_admin,tally.stock.reconciliation.wizard - Admin,model_tally_stock_reconciliation_wizard,group_tally_admin,1,1,1,1
+access_tally_stock_reconciliation_wizard_operator,tally.stock.reconciliation.wizard - Sync Operator,model_tally_stock_reconciliation_wizard,group_tally_operator,1,1,1,0
+access_tally_stock_reconciliation_wizard_system,tally.stock.reconciliation.wizard - System Administrator,model_tally_stock_reconciliation_wizard,base.group_system,1,1,1,1
+access_tally_stock_reconciliation_line_admin,tally.stock.reconciliation.line - Admin,model_tally_stock_reconciliation_line,group_tally_admin,1,1,1,1
+access_tally_stock_reconciliation_line_operator,tally.stock.reconciliation.line - Sync Operator,model_tally_stock_reconciliation_line,group_tally_operator,1,1,1,0
+access_tally_stock_reconciliation_line_system,tally.stock.reconciliation.line - System Administrator,model_tally_stock_reconciliation_line,base.group_system,1,1,1,1
+access_tally_stock_adjustment_log_admin,tally.stock.adjustment.log - Admin,model_tally_stock_adjustment_log,group_tally_admin,1,1,1,0
+access_tally_stock_adjustment_log_operator,tally.stock.adjustment.log - Sync Operator,model_tally_stock_adjustment_log,group_tally_operator,1,0,0,0
+access_tally_stock_adjustment_log_system,tally.stock.adjustment.log - System Administrator,model_tally_stock_adjustment_log,base.group_system,1,1,1,1
+access_tally_dashboard_wizard_admin,tally.dashboard.wizard - Admin,model_tally_dashboard_wizard,group_tally_admin,1,1,1,1
+access_tally_dashboard_wizard_operator,tally.dashboard.wizard - Sync Operator,model_tally_dashboard_wizard,group_tally_operator,1,1,1,0
+access_tally_dashboard_wizard_system,tally.dashboard.wizard - System Administrator,model_tally_dashboard_wizard,base.group_system,1,1,1,1
+access_tally_dashboard_connection_line_admin,tally.dashboard.connection.line - Admin,model_tally_dashboard_connection_line,group_tally_admin,1,1,1,1
+access_tally_dashboard_connection_line_operator,tally.dashboard.connection.line - Sync Operator,model_tally_dashboard_connection_line,group_tally_operator,1,1,1,0
+access_tally_dashboard_connection_line_system,tally.dashboard.connection.line - System Administrator,model_tally_dashboard_connection_line,base.group_system,1,1,1,1
+access_tally_dashboard_category_line_admin,tally.dashboard.category.line - Admin,model_tally_dashboard_category_line,group_tally_admin,1,1,1,1
+access_tally_dashboard_category_line_operator,tally.dashboard.category.line - Sync Operator,model_tally_dashboard_category_line,group_tally_operator,1,1,1,0
+access_tally_dashboard_category_line_system,tally.dashboard.category.line - System Administrator,model_tally_dashboard_category_line,base.group_system,1,1,1,1
+access_tally_dashboard_error_line_admin,tally.dashboard.error.line - Admin,model_tally_dashboard_error_line,group_tally_admin,1,1,1,1
+access_tally_dashboard_error_line_operator,tally.dashboard.error.line - Sync Operator,model_tally_dashboard_error_line,group_tally_operator,1,1,1,0
+access_tally_dashboard_error_line_system,tally.dashboard.error.line - System Administrator,model_tally_dashboard_error_line,base.group_system,1,1,1,1
+access_tally_agent_device_admin,tally.agent.device - Admin,model_tally_agent_device,group_tally_admin,1,1,1,1
+access_tally_agent_device_operator,tally.agent.device - Sync Operator,model_tally_agent_device,group_tally_operator,1,0,0,0
+access_tally_agent_device_system,tally.agent.device - System Administrator,model_tally_agent_device,base.group_system,1,1,1,1
+access_tally_agent_token_reveal_wizard_admin,tally.agent.token.reveal.wizard - Admin,model_tally_agent_token_reveal_wizard,group_tally_admin,1,1,1,1
+access_tally_agent_token_reveal_wizard_system,tally.agent.token.reveal.wizard - System Administrator,model_tally_agent_token_reveal_wizard,base.group_system,1,1,1,1
+access_tally_agent_job_admin,tally.agent.job - Admin,model_tally_agent_job,group_tally_admin,1,1,1,0
+access_tally_agent_job_operator,tally.agent.job - Sync Operator,model_tally_agent_job,group_tally_operator,1,0,0,0
+access_tally_agent_job_system,tally.agent.job - System Administrator,model_tally_agent_job,base.group_system,1,1,1,1
+access_tally_opening_balance_wizard_admin,tally.opening.balance.wizard - Admin,model_tally_opening_balance_wizard,group_tally_admin,1,1,1,1
+access_tally_opening_balance_wizard_system,tally.opening.balance.wizard - System Administrator,model_tally_opening_balance_wizard,base.group_system,1,1,1,1
+access_tally_opening_balance_line_admin,tally.opening.balance.line - Admin,model_tally_opening_balance_line,group_tally_admin,1,1,1,1
+access_tally_opening_balance_line_system,tally.opening.balance.line - System Administrator,model_tally_opening_balance_line,base.group_system,1,1,1,1

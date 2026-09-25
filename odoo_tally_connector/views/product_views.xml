@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Product Variant form: add Tally sync button + status tab -->
+    <record model="ir.ui.view" id="view_product_product_form_tally">
+        <field name="name">product.product.form.tally</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Tally" name="tally_sync">
+                    <group>
+                        <button name="action_sync_to_tally" string="Sync to Tally" type="object" class="btn-primary"/>
+                    </group>
+                    <group>
+                        <group string="Sync Status">
+                            <field name="tally_sync_status" widget="badge"/>
+                            <field name="tally_last_sync_at"/>
+                            <field name="tally_sync_attempts"/>
+                        </group>
+                        <group string="Tally Identity">
+                            <field name="tally_guid" readonly="tally_sync_status == 'success'"/>
+                            <field name="tally_synced_name"/>
+                        </group>
+                    </group>
+                    <group string="Last Error" invisible="not tally_last_sync_error">
+                        <field name="tally_last_sync_error" nolabel="1" widget="text" readonly="1"/>
+                    </group>
+                    <div class="text-muted" invisible="tally_sync_status == 'success'">
+                        Manually pasting a GUID here (from "Fetch Ledgers"/import from Tally) links this
+                        product to a specific Tally Stock Item - use this to resolve an ambiguous name
+                        match when two distinct Odoo products share the same name.
+                    </div>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Product Template form: same Tally tab for the common single-variant case -->
+    <record model="ir.ui.view" id="view_product_template_form_tally">
+        <field name="name">product.template.form.tally</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Tally" name="tally_sync">
+                    <group>
+                        <button name="action_sync_to_tally" string="Sync to Tally" type="object" class="btn-primary"/>
+                    </group>
+                    <group>
+                        <group string="Sync Status">
+                            <field name="tally_sync_status" widget="badge"/>
+                            <field name="tally_last_sync_at"/>
+                            <field name="tally_sync_attempts"/>
+                        </group>
+                        <group string="Tally Identity">
+                            <field name="tally_guid"/>
+                        </group>
+                    </group>
+                    <group string="Last Error" invisible="not tally_last_sync_error">
+                        <field name="tally_last_sync_error" nolabel="1" widget="text" readonly="1"/>
+                    </group>
+                    <div class="text-muted">
+                        To manually link this product to a specific Tally Stock Item GUID
+                        (e.g. to resolve an ambiguous name match), edit it from
+                        Inventory > Products > Product Variants instead.
+                    </div>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

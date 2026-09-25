@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Sequence for sync job correlation IDs -->
+        <record model="ir.sequence" id="seq_tally_sync_correlation">
+            <field name="name">Tally Sync Correlation ID</field>
+            <field name="code">tally.sync.correlation</field>
+            <field name="prefix">TALLY-SYNC-</field>
+            <field name="padding">8</field>
+            <field name="number_next">1</field>
+        </record>
+    </data>
+</odoo>

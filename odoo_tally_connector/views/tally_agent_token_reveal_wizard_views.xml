@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_tally_agent_token_reveal_wizard_form">
+        <field name="name">tally.agent.token.reveal.wizard.form</field>
+        <field name="model">tally.agent.token.reveal.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Agent Enrollment Token">
+                <sheet>
+                    <div class="alert alert-warning" role="alert">
+                        Copy this token now - it will not be shown again. Paste it into the Local Tally
+                        Agent's setup screen on the client's PC. Generating a new token later replaces
+                        this one immediately.
+                    </div>
+                    <group>
+                        <field name="connection_id" readonly="1"/>
+                        <field name="token" readonly="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Close" special="cancel" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

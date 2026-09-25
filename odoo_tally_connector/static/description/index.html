@@ -1,0 +1,278 @@
+<section style="max-width:920px;margin:0 auto;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;color:#1c2024;line-height:1.6;">
+<style>
+    .tc-eyebrow{font-family:'Courier New',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#96751f;font-weight:700;}
+    .tc-h1{font-size:34px;font-weight:800;line-height:1.2;margin:12px 0 0;color:#151a1e;}
+    .tc-h2{font-size:26px;font-weight:800;line-height:1.25;margin:0 0 6px;color:#151a1e;}
+    .tc-h4{font-size:16px;font-weight:700;margin:0 0 8px;color:#151a1e;}
+    .tc-muted{color:#5b6570;}
+    .tc-small{font-size:13px;}
+    .tc-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#8a6a1c;background:#faf1d8;border:1px solid #e6cf99;border-radius:3px;padding:2px 8px;margin-left:6px;vertical-align:middle;}
+    .tc-card{border:1px solid #e2e5e9;border-radius:8px;padding:22px;background:#fff;height:100%;box-sizing:border-box;}
+    .tc-check{color:#b32a1e;font-weight:800;margin-right:10px;}
+    .tc-section{margin:0 0 44px;}
+    .tc-section-head{border-bottom:1px solid #e2e5e9;padding-bottom:16px;margin-bottom:26px;}
+    table.tc-cov{width:100%;border-collapse:collapse;font-size:13.5px;}
+    table.tc-cov th{background:#1c2024;color:#f2f2f2;text-align:left;padding:10px 14px;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;font-weight:700;}
+    table.tc-cov td{padding:10px 14px;border-top:1px solid #ececec;}
+    table.tc-cov tbody tr:nth-child(even) td{background:#fafafa;}
+    .tc-yes{color:#227a45;font-weight:700;}
+    .tc-mid{color:#a3791f;font-weight:700;}
+    .tc-dash{color:#b0b6bc;}
+    .tc-step{display:flex;gap:16px;border:1px solid #e2e5e9;border-radius:8px;padding:18px 22px;margin-bottom:10px;background:#fff;}
+    .tc-num{flex:none;width:28px;height:28px;line-height:28px;text-align:center;border-radius:50%;background:#b32a1e;color:#fff;font-size:13px;font-weight:700;}
+    .tc-step ul{margin:8px 0 0;padding-left:18px;}
+    .tc-step li{margin-bottom:4px;font-size:13.5px;color:#3a4149;}
+    .tc-faq{border:1px solid #e2e5e9;border-radius:8px;padding:16px 20px;margin-bottom:8px;background:#fff;}
+    .tc-code{background:#f1f2f4;border:1px solid #e2e5e9;border-radius:4px;padding:1px 7px;font-family:'Courier New',monospace;font-size:12.5px;color:#1c2024;}
+    .tc-mode-tag{display:inline-block;font-family:'Courier New',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:4px 10px;border-radius:999px;font-weight:700;}
+    p{margin:0 0 6px;}
+    ul{margin:0;}
+</style>
+
+<!-- HERO -->
+<div class="tc-section" style="text-align:center;">
+    <div class="tc-eyebrow">DigiMonk Technologies &middot; Odoo 19 &middot; Tally Prime / Tally ERP 9</div>
+    <h1 class="tc-h1">One entry in Odoo.<br/>One voucher in <span style="color:#b32a1e;font-style:italic;">Tally</span>.<br/>Never typed twice.</h1>
+    <p class="tc-muted" style="font-size:16.5px;max-width:600px;margin:16px auto 0;">
+        Post an invoice, bill, payment, journal or note in Odoo and it lands in Tally on its own &mdash;
+        matched by a stable GUID so re-running a sync confirms a voucher, never duplicates it.
+    </p>
+    <p class="tc-small tc-muted" style="margin-top:16px;">
+        <b style="color:#1c2024;">Version</b> 1.1.0 &nbsp;&middot;&nbsp;
+        <b style="color:#1c2024;">License</b> AGPL-3 &nbsp;&middot;&nbsp;
+        <b style="color:#1c2024;">Category</b> Accounting / Integrations
+    </p>
+</div>
+
+<!-- BANNER -->
+<div class="tc-section" style="text-align:center;">
+    <img src="banner.png" style="max-width:100%;height:auto;border:1px solid #e2e5e9;border-radius:8px;" alt="Odoo Tally Connector by DigiMonk Technologies"/>
+</div>
+
+<!-- LEDGER EXAMPLE -->
+<div class="tc-section" style="max-width:620px;margin-left:auto;margin-right:auto;">
+    <div style="border:1px solid #e2e5e9;border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(20,25,30,.05);">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:13px 20px;background:#1c2024;color:#eee;">
+            <span style="font-family:'Courier New',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;">Sales Voucher No. 214</span>
+            <span style="font-family:'Courier New',monospace;font-size:12px;color:#ff8a72;font-weight:700;">&#9670; Synced</span>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:13.5px;">
+            <thead>
+                <tr style="border-bottom:1px solid #e2e5e9;">
+                    <th style="text-align:left;padding:11px 20px;color:#8a939c;font-size:11px;text-transform:uppercase;letter-spacing:.03em;">Particulars</th>
+                    <th style="text-align:right;padding:11px 20px;color:#8a939c;font-size:11px;text-transform:uppercase;letter-spacing:.03em;">Debit</th>
+                    <th style="text-align:right;padding:11px 20px;color:#8a939c;font-size:11px;text-transform:uppercase;letter-spacing:.03em;">Credit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom:1px dotted #e2e5e9;">
+                    <td style="padding:11px 20px;">Sundry Debtors A/c<br/><small class="tc-muted">Matched by GUID &middot; Rahul Traders</small></td>
+                    <td style="padding:11px 20px;text-align:right;font-family:'Courier New',monospace;">12,500.00</td>
+                    <td style="padding:11px 20px;text-align:right;font-family:'Courier New',monospace;color:#b0b6bc;">&mdash;</td>
+                </tr>
+                <tr style="border-bottom:1px dotted #e2e5e9;">
+                    <td style="padding:11px 20px;">Sales A/c<br/><small class="tc-muted">Revenue ledger, auto-mapped</small></td>
+                    <td style="padding:11px 20px;text-align:right;font-family:'Courier New',monospace;color:#b0b6bc;">&mdash;</td>
+                    <td style="padding:11px 20px;text-align:right;font-family:'Courier New',monospace;font-weight:700;">10,593.22</td>
+                </tr>
+                <tr>
+                    <td style="padding:11px 20px;">Output CGST/SGST A/c<br/><small class="tc-muted">Tax ledger, auto-mapped</small></td>
+                    <td style="padding:11px 20px;text-align:right;font-family:'Courier New',monospace;color:#b0b6bc;">&mdash;</td>
+                    <td style="padding:11px 20px;text-align:right;font-family:'Courier New',monospace;font-weight:700;">1,906.78</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="padding:11px 20px;border-top:1px solid #f0f0f0;font-family:'Courier New',monospace;font-size:11.5px;color:#8a939c;">
+            Queued 09:14:02 &rarr; Confirmed by Tally 09:14:07
+        </div>
+    </div>
+</div>
+
+<!-- WHY -->
+<div class="tc-section" style="display:flex;flex-wrap:wrap;gap:36px;">
+    <div style="flex:1 1 340px;">
+        <div class="tc-eyebrow">Why DigiMonk Tally Connector</div>
+        <h2 class="tc-h2" style="margin-top:8px;">Built for the accountant,<br/>not just the API.</h2>
+        <p class="tc-muted" style="margin-top:12px;">
+            Most Odoo&ndash;Tally bridges stop at &ldquo;the data moved.&rdquo; This one is built around what
+            actually breaks integrations in production: duplicate vouchers, silent failures, and connections
+            that only work when everyone's on the same VPN.
+        </p>
+        <ul style="list-style:none;padding-left:0;margin-top:18px;">
+            <li style="display:flex;gap:2px;margin-bottom:12px;font-size:14.5px;"><span class="tc-check">&#10003;</span><span class="tc-muted"><b style="color:#1c2024;">Native Tally XML</b> &mdash; talks HTTP/XML directly, no middleware, no CSV round-trips.</span></li>
+            <li style="display:flex;gap:2px;margin-bottom:12px;font-size:14.5px;"><span class="tc-check">&#10003;</span><span class="tc-muted"><b style="color:#1c2024;">GUID-matched sync</b> &mdash; re-running a sync confirms a voucher, never duplicates it, even after a dropped connection.</span></li>
+            <li style="display:flex;gap:2px;margin-bottom:12px;font-size:14.5px;"><span class="tc-check">&#10003;</span><span class="tc-muted"><b style="color:#1c2024;">Direct or Agent connectivity</b> &mdash; works even with no VPN or open inbound port.</span></li>
+            <li style="display:flex;gap:2px;margin-bottom:0;font-size:14.5px;"><span class="tc-check">&#10003;</span><span class="tc-muted"><b style="color:#1c2024;">Nothing silent</b> &mdash; every automatic adjustment lands in an audit log, not just a log file.</span></li>
+        </ul>
+    </div>
+    <div style="flex:1 1 340px;">
+        <div class="tc-eyebrow">Under the hood</div>
+        <h2 class="tc-h2" style="margin-top:8px;">A queue, not a gamble.</h2>
+        <p class="tc-muted" style="margin-top:12px;">
+            Every sync is handed to a background job the moment you post a document &mdash; it never blocks
+            your screen waiting on a slow network or an idle Tally window. The job is retried on your terms,
+            and its outcome is always written back onto the exact record you posted, so what Odoo shows
+            always matches what actually happened.
+        </p>
+        <div style="display:flex;gap:10px;margin-top:18px;align-items:flex-start;">
+            <span style="color:#a3791f;font-weight:800;">&#9679;</span>
+            <span class="tc-small tc-muted"><b style="color:#1c2024;">Queued instantly</b> &mdash; posting a document never waits on Tally to respond.</span>
+        </div>
+    </div>
+</div>
+
+<!-- FEATURES -->
+<div class="tc-section">
+    <div class="tc-section-head">
+        <div class="tc-eyebrow">What it does</div>
+        <h2 class="tc-h2" style="margin-top:8px;">Eight things it actually does</h2>
+        <p class="tc-muted tc-small">No roadmap items, no &ldquo;coming soon&rdquo; &mdash; every tile below ships today and runs against real Tally instances in production.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;">
+        <div style="flex:1 1 200px;"><div class="tc-card"><h4 class="tc-h4">Bidirectional voucher sync</h4><p class="tc-muted tc-small">Sales, purchase, credit/debit notes and receipts/payments sync both ways with deterministic GUIDs.</p></div></div>
+        <div style="flex:1 1 200px;"><div class="tc-card"><h4 class="tc-h4">Journal &amp; Contra vouchers<span class="tc-badge">New</span></h4><p class="tc-muted tc-small">Miscellaneous journal entries and Cash/Bank fund transfers sync out to Tally alongside your regular vouchers.</p></div></div>
+        <div style="flex:1 1 200px;"><div class="tc-card"><h4 class="tc-h4">Master data sync</h4><p class="tc-muted tc-small">Products and contacts stay aligned automatically &mdash; create once, ready on both sides.</p></div></div>
+        <div style="flex:1 1 200px;"><div class="tc-card"><h4 class="tc-h4">Stock groups &amp; units<span class="tc-badge">New</span></h4><p class="tc-muted tc-small">Product categories and units of measure map onto Tally's own Stock Groups &mdash; not just the item itself.</p></div></div>
+        <div style="flex:1 1 200px;"><div class="tc-card"><h4 class="tc-h4">Live sync dashboard</h4><p class="tc-muted tc-small">Connection health, category breakdown, and recent errors &mdash; with one-click retry.</p></div></div>
+        <div style="flex:1 1 200px;"><div class="tc-card"><h4 class="tc-h4">Stock reconciliation</h4><p class="tc-muted tc-small">Flags Odoo-vs-Tally quantity mismatches before a small gap becomes a real problem.</p></div></div>
+        <div style="flex:1 1 200px;"><div class="tc-card"><h4 class="tc-h4">Two connectivity modes</h4><p class="tc-muted tc-small">Direct network access, or a lightweight outbound-only Agent &mdash; no VPN required.</p></div></div>
+        <div style="flex:1 1 200px;"><div class="tc-card"><h4 class="tc-h4">Never blocks, never doubles<span class="tc-badge">New</span></h4><p class="tc-muted tc-small">Syncs queue instantly and retry safely in the background &mdash; a slow network never freezes your screen or files a voucher twice.</p></div></div>
+    </div>
+</div>
+
+<!-- COVERAGE -->
+<div class="tc-section">
+    <div class="tc-section-head">
+        <div class="tc-eyebrow">Entity coverage</div>
+        <h2 class="tc-h2" style="margin-top:8px;">What syncs, and which way</h2>
+        <p class="tc-muted tc-small">Every row below is a real action inside the connector today &mdash; not a roadmap promise.</p>
+    </div>
+    <div style="overflow-x:auto;border:1px solid #e2e5e9;border-radius:8px;">
+        <table class="tc-cov">
+            <thead><tr><th>Entity / Action</th><th>Tally &rarr; Odoo</th><th>Odoo &rarr; Tally</th><th>Notes</th></tr></thead>
+            <tbody>
+                <tr><td><b>Stock items (Products)</b></td><td class="tc-yes">Yes</td><td class="tc-yes">Yes</td><td class="tc-muted">Matched by GUID, rename-aware</td></tr>
+                <tr><td><b>Party ledgers (Contacts)</b></td><td class="tc-yes">Yes</td><td class="tc-yes">Yes</td><td class="tc-muted">Customers &amp; vendors</td></tr>
+                <tr><td><b>Sales vouchers (Invoices)</b></td><td class="tc-yes">Yes</td><td class="tc-yes">Yes</td><td class="tc-muted">Tax &amp; revenue ledgers auto-mapped</td></tr>
+                <tr><td><b>Purchase vouchers (Bills)</b></td><td class="tc-yes">Yes</td><td class="tc-yes">Yes</td><td class="tc-muted">&nbsp;</td></tr>
+                <tr><td><b>Credit / debit notes</b></td><td class="tc-yes">Yes</td><td class="tc-yes">Yes</td><td class="tc-muted">&nbsp;</td></tr>
+                <tr><td><b>Receipts / payments</b></td><td class="tc-yes">Yes</td><td class="tc-yes">Yes</td><td class="tc-muted">&nbsp;</td></tr>
+                <tr><td><b>Journal vouchers</b><span class="tc-badge">New</span></td><td class="tc-dash">&mdash;</td><td class="tc-yes">Yes</td><td class="tc-muted">Miscellaneous journal entries</td></tr>
+                <tr><td><b>Contra vouchers</b><span class="tc-badge">New</span></td><td class="tc-dash">&mdash;</td><td class="tc-yes">Yes</td><td class="tc-muted">Cash/Bank fund transfers</td></tr>
+                <tr><td><b>Opening balances</b><span class="tc-badge">New</span></td><td class="tc-dash">&mdash;</td><td class="tc-yes">Yes</td><td class="tc-muted">One-time onboarding push</td></tr>
+                <tr><td><b>Stock groups &amp; units</b><span class="tc-badge">New</span></td><td class="tc-dash">&mdash;</td><td class="tc-yes">Yes</td><td class="tc-muted">Product categories &amp; UOMs as Tally masters</td></tr>
+                <tr><td><b>Account / Tax / Journal mapping</b></td><td class="tc-mid">Suggest</td><td class="tc-dash">&mdash;</td><td class="tc-muted">One-click name-match suggestions</td></tr>
+                <tr><td><b>Stock reconciliation</b></td><td class="tc-mid">Compare</td><td class="tc-dash">&mdash;</td><td class="tc-muted">Alerts on mismatch, doesn't auto-correct</td></tr>
+                <tr><td><b>Ledger / company lookup</b></td><td class="tc-mid">Fetch</td><td class="tc-dash">&mdash;</td><td class="tc-muted">Setup &amp; troubleshooting utility</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ARCHITECTURE -->
+<div class="tc-section">
+    <div class="tc-section-head">
+        <div class="tc-eyebrow">Architecture</div>
+        <h2 class="tc-h2" style="margin-top:8px;">Pick the topology that fits your network</h2>
+        <p class="tc-muted tc-small">Both modes run the same sync engine underneath &mdash; the only difference is how the request reaches Tally.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;">
+        <div style="flex:1 1 320px;">
+            <div class="tc-card">
+                <span class="tc-mode-tag" style="background:#e5f3e9;color:#227a45;">Direct</span>
+                <h4 class="tc-h4" style="margin-top:12px;">Odoo connects to Tally</h4>
+                <p class="tc-muted tc-small">Best when Odoo already has private network access to the Tally machine &mdash; over a site VPN, Tailscale, or a shared LAN.</p>
+                <ul style="font-size:13.5px;color:#3a4149;margin-top:10px;padding-left:18px;">
+                    <li style="margin-bottom:4px;">No extra software to install on the Tally PC</li>
+                    <li style="margin-bottom:4px;">Odoo calls Tally's HTTP/XML listener directly</li>
+                    <li>Requires the network path to already exist</li>
+                </ul>
+            </div>
+        </div>
+        <div style="flex:1 1 320px;">
+            <div class="tc-card">
+                <span class="tc-mode-tag" style="background:#fbe9e6;color:#b32a1e;">Agent</span>
+                <h4 class="tc-h4" style="margin-top:12px;">Tally's PC connects to Odoo</h4>
+                <p class="tc-muted tc-small">Best when there's no VPN and you don't want to open an inbound port &mdash; the Agent only ever calls out, and queues work the moment it comes online.</p>
+                <ul style="font-size:13.5px;color:#3a4149;margin-top:10px;padding-left:18px;">
+                    <li style="margin-bottom:4px;">One small program, no installer, no admin rights</li>
+                    <li style="margin-bottom:4px;">Polls Odoo for work, talks to Tally on localhost</li>
+                    <li>Works behind any firewall or NAT unmodified</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SETUP -->
+<div class="tc-section">
+    <div class="tc-section-head">
+        <div class="tc-eyebrow">Getting started</div>
+        <h2 class="tc-h2" style="margin-top:8px;">Six steps, one working sync</h2>
+        <p class="tc-muted tc-small">This is the Agent path &mdash; no network changes needed. Direct mode skips straight to filling in Tally's host and port.</p>
+    </div>
+    <div class="tc-step"><div class="tc-num">1</div><div><b>Create a connection in Odoo</b>
+        <ul><li>Open the <b>Tally Connector</b> app, go to Tally Connections</li><li>Create a new connection, name it, and select your Company</li><li>Set <span class="tc-code">Connection Mode</span> to &ldquo;Agent (preview)&rdquo; and save</li></ul>
+    </div></div>
+    <div class="tc-step"><div class="tc-num">2</div><div><b>Generate your Agent token</b>
+        <ul><li>Click <b>Generate Agent Token</b> on the connection</li><li>Copy the token immediately &mdash; it's shown once and can't be retrieved again</li><li>Generating a new token later immediately revokes this one &mdash; the Agent using it will need the new token too</li></ul>
+    </div></div>
+    <div class="tc-step"><div class="tc-num">3</div><div><b>Download the Agent</b>
+        <p class="tc-small" style="margin:6px 0;">On the PC where Tally actually runs:</p>
+        <div class="tc-code" style="display:inline-block;">https://digimonk.in/agent-download</div>
+        <ul style="margin-top:8px;"><li>Extract the zip to any folder</li></ul>
+    </div></div>
+    <div class="tc-step"><div class="tc-num">4</div><div><b>Run the setup wizard</b>
+        <ul><li>Double-click <span class="tc-code">run_agent.bat</span></li><li>Enter your Odoo URL, database name, and the token from step 2</li><li>Tally host/port defaults to <span class="tc-code">localhost:9000</span> when it's the same PC</li><li>The wizard writes <span class="tc-code">config.json</span> for you</li></ul>
+    </div></div>
+    <div class="tc-step"><div class="tc-num">5</div><div><b>Confirm it's working</b>
+        <ul><li>The Agent window shows &ldquo;Registered&hellip;&rdquo; and &ldquo;Local Tally is now reachable&rdquo; once setup completes</li><li>In Odoo, the connection shows <b>Online</b> and <b>Tally Reachable</b> in green under Agent Devices</li><li>Click <b>Test Connection</b> &mdash; it shows &ldquo;Testing&rdquo; for a few seconds, then settles to &ldquo;Connected&rdquo;</li></ul>
+    </div></div>
+    <div class="tc-step" style="margin-bottom:0;"><div class="tc-num">6</div><div><b>Keep it running automatically</b>
+        <ul><li>Press <span class="tc-code">Win+R</span> &rarr; <span class="tc-code">shell:startup</span> &rarr; Enter</li><li>Add a shortcut to <span class="tc-code">run_agent.bat</span> in that folder</li><li>The Agent now starts on every login &mdash; no manual step left</li></ul>
+    </div></div>
+</div>
+
+<!-- TROUBLESHOOTING -->
+<div class="tc-section">
+    <div class="tc-section-head">
+        <div class="tc-eyebrow">Troubleshooting</div>
+        <h2 class="tc-h2" style="margin-top:8px;">The five messages you'll actually see</h2>
+        <p class="tc-muted tc-small">Every state the Agent or connection can show, and exactly what to do about it.</p>
+    </div>
+    <div class="tc-faq"><b>Connection shows &ldquo;Testing&rdquo; and doesn't change</b>
+        <p class="tc-muted tc-small" style="margin-top:6px;">This is normal, not stuck. Clicking Test Connection queues a check for the Agent to pick up &mdash; it settles to Connected or Failed within a few seconds. Refresh the page once, rather than clicking the button again.</p>
+    </div>
+    <div class="tc-faq"><b>Agent window says &ldquo;Invalid or revoked token&rdquo;</b>
+        <p class="tc-muted tc-small" style="margin-top:6px;">A new Agent Token was generated for this connection since this Agent last started &mdash; generating a token always revokes the previous one immediately, on purpose. Generate a fresh token, update <span class="tc-code">config.json</span>, and restart <span class="tc-code">run_agent.bat</span>.</p>
+    </div>
+    <div class="tc-faq"><b>Connection shows &ldquo;Online&rdquo; but nothing is syncing</b>
+        <p class="tc-muted tc-small" style="margin-top:6px;">Check <b>Enabled for Sync</b> is switched on, and open <b>View Agent Sync Timeline</b> &mdash; a record stuck in &ldquo;Queued&rdquo; for more than a minute usually means the Agent window has been closed.</p>
+    </div>
+    <div class="tc-faq"><b>&ldquo;Could not reach Odoo to poll (502 Bad Gateway)&rdquo; in the Agent window</b>
+        <p class="tc-muted tc-small" style="margin-top:6px;">A brief, one-off gap reaching your Odoo server. The Agent retries on its own every few seconds; no action needed unless it repeats for more than a minute.</p>
+    </div>
+    <div class="tc-faq" style="margin-bottom:0;"><b>A record shows &ldquo;Failed&rdquo; with a real error message</b>
+        <p class="tc-muted tc-small" style="margin-top:6px;">A genuine rejection from Tally itself (a missing ledger, a closed period, a mismatched Stock Item). Fix it in Tally or in the mapping, then use the record's own <b>Sync to Tally</b> button to retry &mdash; safe to retry any number of times.</p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div style="display:flex;flex-wrap:wrap;gap:24px;border-top:1px solid #e2e5e9;padding-top:24px;">
+    <div style="flex:1 1 220px;" class="tc-small">
+        <b>DigiMonk Technologies</b><br/>
+        <span class="tc-muted">Odoo Tally Connector &mdash; v1.1.0</span><br/>
+        <span class="tc-muted">AGPL-3 &middot; Accounting / Integrations</span><br/>
+        <a href="https://digimonk.in/" target="_blank" style="color:#b32a1e;text-decoration:none;font-weight:600;">digimonk.in</a>
+    </div>
+    <div style="flex:1 1 220px;" class="tc-small">
+        <b>Compatibility</b><br/>
+        <span class="tc-muted">Odoo 19</span><br/>
+        <span class="tc-muted">Tally Prime &middot; Tally ERP 9</span>
+    </div>
+    <div style="flex:1 1 220px;" class="tc-small">
+        <b>Support</b><br/>
+        <span class="tc-muted">Contact DigiMonk for deployment help, custom mapping or onboarding.<br/>Software Technology Parks Of India, Gwalior, Madhya Pradesh, 474005 India<br/>Tel: +91 77228-45500</span>
+    </div>
+</div>
+</section>

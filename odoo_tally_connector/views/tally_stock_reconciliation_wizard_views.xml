@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_tally_stock_reconciliation_wizard_form">
+        <field name="name">tally.stock.reconciliation.wizard.form</field>
+        <field name="model">tally.stock.reconciliation.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Stock Reconciliation">
+                <header>
+                    <button name="action_refresh" string="Refresh from Tally" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <field name="connection_id" invisible="1"/>
+                    <group>
+                        <field name="mismatched_count"/>
+                    </group>
+                    <p class="text-muted">
+                        Compares Odoo's on-hand quantity against Tally's stock closing balance for
+                        every product already linked to Tally. Nothing is corrected automatically -
+                        rows past the connection's mismatch threshold are highlighted; decide which
+                        number is correct yourself (usually only a physical stock count can tell
+                        you), then use the buttons below to push that decision to whichever side
+                        needs it. Every adjustment made this way is logged (Tally > Configuration >
+                        Stock Adjustment Log) with who, when, and the before/after quantities.
+                    </p>
+                    <field name="line_ids">
+                        <list decoration-danger="is_mismatch">
+                            <field name="product_id"/>
+                            <field name="odoo_qty"/>
+                            <field name="tally_qty"/>
+                            <field name="difference"/>
+                            <field name="is_mismatch" widget="boolean_toggle" readonly="1"/>
+                            <button name="action_set_odoo_to_tally_qty" string="Set Odoo = Tally"
+                                    type="object" icon="fa-arrow-left" invisible="not is_mismatch"
+                                    help="Set Odoo's on-hand quantity to match Tally's (Inventory Adjustment)"/>
+                            <button name="action_set_tally_to_odoo_qty" string="Set Tally = Odoo"
+                                    type="object" icon="fa-arrow-right" invisible="not is_mismatch"
+                                    help="Push a Physical Stock voucher to Tally to match Odoo's quantity"/>
+                        </list>
+                    </field>
+                </sheet>
+                <footer>
+                    <button string="Close" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

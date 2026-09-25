@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_tally_dashboard_wizard_form">
+        <field name="name">tally.dashboard.wizard.form</field>
+        <field name="model">tally.dashboard.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Tally Sync Dashboard" class="o_tally_dashboard">
+                <header>
+                    <button name="action_refresh" string="Refresh" type="object" class="btn-primary" icon="fa-refresh"/>
+                    <button name="action_retry_all_failed" string="Retry Failed Now" type="object"
+                            class="btn-secondary" icon="fa-repeat"
+                            confirm="Re-attempt every pending/failed sync across all connections now, instead of waiting for the next scheduled run?"/>
+                </header>
+                <sheet>
+                    <div class="row g-3 mb-4">
+                        <div class="col-12 col-md-4">
+                            <div class="p-3 rounded shadow-sm h-100 d-flex align-items-center"
+                                 style="background-color:#fff8e6; border-left: 4px solid #f0ad4e;">
+                                <i class="fa fa-clock-o fa-2x me-3" style="color:#f0ad4e;"/>
+                                <div>
+                                    <div class="text-muted small text-uppercase">Pending</div>
+                                    <field name="total_pending" nolabel="1" class="fs-2 fw-bold d-block" style="color:#8a6d3b;"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="p-3 rounded shadow-sm h-100 d-flex align-items-center"
+                                 style="background-color:#fdecea; border-left: 4px solid #d9534f;">
+                                <i class="fa fa-exclamation-triangle fa-2x me-3" style="color:#d9534f;"/>
+                                <div>
+                                    <div class="text-muted small text-uppercase">Failed</div>
+                                    <field name="total_failed" nolabel="1" class="fs-2 fw-bold d-block" style="color:#a94442;"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="p-3 rounded shadow-sm h-100 d-flex align-items-center"
+                                 style="background-color:#eaf2f8; border-left: 4px solid #337ab7;">
+                                <i class="fa fa-balance-scale fa-2x me-3" style="color:#337ab7;"/>
+                                <div>
+                                    <div class="text-muted small text-uppercase">Stock Mismatch Alerts</div>
+                                    <field name="open_mismatch_alerts" nolabel="1" class="fs-2 fw-bold d-block" style="color:#245580;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-white fw-bold">
+                            <i class="fa fa-plug me-2 text-muted"/>Connections
+                        </div>
+                        <field name="connection_line_ids" nolabel="1">
+                            <list create="0" delete="0">
+                                <field name="connection_id"/>
+                                <field name="company_id"/>
+                                <field name="connection_status" widget="badge"
+                                       decoration-success="connection_status == 'success'"
+                                       decoration-danger="connection_status == 'failed'"/>
+                                <field name="enabled_for_sync" widget="boolean_toggle" readonly="1"/>
+                                <field name="last_tested_at"/>
+                            </list>
+                        </field>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-white fw-bold">
+                            <i class="fa fa-list-alt me-2 text-muted"/>Sync Status by Type
+                        </div>
+                        <field name="category_line_ids" nolabel="1">
+                            <list create="0" delete="0" decoration-danger="failed_count &gt; 0">
+                                <field name="connection_id"/>
+                                <field name="category_label" string="Type"/>
+                                <field name="pending_count" widget="badge" decoration-warning="pending_count &gt; 0"/>
+                                <field name="failed_count" widget="badge" decoration-danger="failed_count &gt; 0"/>
+                                <button name="action_view_pending" string="View Pending" type="object"
+                                        icon="fa-external-link" invisible="pending_count == 0"/>
+                                <button name="action_view_failed" string="View Failed" type="object"
+                                        icon="fa-external-link" invisible="failed_count == 0"/>
+                            </list>
+                        </field>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header bg-white fw-bold">
+                            <i class="fa fa-bug me-2 text-muted"/>Recent Errors
+                        </div>
+                        <field name="error_line_ids" nolabel="1">
+                            <list create="0" delete="0">
+                                <field name="occurred_at"/>
+                                <field name="category_label" string="Type"/>
+                                <field name="record_name" string="Record"/>
+                                <field name="error_message" string="Error"/>
+                                <button name="action_open_record" string="Open" type="object" icon="fa-external-link"/>
+                            </list>
+                        </field>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.server" id="action_tally_dashboard_open">
+        <field name="name">Tally Sync Dashboard</field>
+        <field name="model_id" ref="model_tally_dashboard_wizard"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_open_dashboard()</field>
+    </record>
+</odoo>

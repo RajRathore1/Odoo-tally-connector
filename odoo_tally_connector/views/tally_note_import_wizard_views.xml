@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_tally_note_import_wizard_form">
+        <field name="name">tally.note.import.wizard.form</field>
+        <field name="model">tally.note.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import Credit/Debit Notes from Tally">
+                <group>
+                    <field name="connection_id" invisible="1"/>
+                    <field name="note_type"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <p class="text-muted">
+                    Credit/Debit Note vouchers created directly in Tally within this date range
+                    will be imported as draft Odoo records. Vouchers already synced from Odoo
+                    are skipped automatically. Party, product, and account/tax mappings must
+                    already exist - unmapped vouchers are reported as errors, not guessed.
+                </p>
+                <footer>
+                    <button name="action_import" string="Import" type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_tally_note_import_wizard">
+        <field name="name">Import Credit/Debit Notes from Tally</field>
+        <field name="res_model">tally.note.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

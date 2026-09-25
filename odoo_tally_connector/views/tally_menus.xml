@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Main Tally Menu -->
+    <menuitem
+        id="menu_tally_root"
+        name="Tally"
+        sequence="100"
+        action="action_tally_connection"
+        groups="group_tally_admin,group_tally_operator,base.group_system"
+    />
+
+    <!-- Tally > Configuration -->
+    <menuitem
+        id="menu_tally_configuration"
+        name="Configuration"
+        parent="menu_tally_root"
+        sequence="10"
+        groups="group_tally_admin,base.group_system"
+    />
+
+    <!-- Tally > Configuration > Connections -->
+    <menuitem
+        id="menu_tally_connection"
+        name="Connections"
+        parent="menu_tally_configuration"
+        sequence="10"
+        action="action_tally_connection"
+        groups="group_tally_admin,base.group_system"
+    />
+
+    <!-- Tally > Configuration > Account Mapping -->
+    <menuitem
+        id="menu_tally_account_mapping"
+        name="Account Mapping"
+        parent="menu_tally_configuration"
+        sequence="20"
+        action="action_tally_account_mapping"
+        groups="group_tally_admin,base.group_system"
+    />
+
+    <!-- Tally > Configuration > Tax Mapping -->
+    <menuitem
+        id="menu_tally_tax_mapping"
+        name="Tax Mapping"
+        parent="menu_tally_configuration"
+        sequence="30"
+        action="action_tally_tax_mapping"
+        groups="group_tally_admin,base.group_system"
+    />
+
+    <!-- Tally > Configuration > Journal Mapping -->
+    <menuitem
+        id="menu_tally_journal_mapping"
+        name="Journal Mapping"
+        parent="menu_tally_configuration"
+        sequence="40"
+        action="action_tally_journal_mapping"
+        groups="group_tally_admin,base.group_system"
+    />
+
+    <!-- Tally > Configuration > Stock Adjustment Log -->
+    <menuitem
+        id="menu_tally_stock_adjustment_log"
+        name="Stock Adjustment Log"
+        parent="menu_tally_configuration"
+        sequence="50"
+        action="action_tally_stock_adjustment_log"
+        groups="group_tally_admin,base.group_system"
+    />
+
+    <!-- Tally > Dashboard -->
+    <menuitem
+        id="menu_tally_dashboard"
+        name="Dashboard"
+        parent="menu_tally_root"
+        sequence="1"
+        action="action_tally_dashboard_open"
+        groups="group_tally_admin,group_tally_operator,base.group_system"
+    />
+
+    <!-- Tally > Sync Operations (placeholder for later phases) -->
+    <menuitem
+        id="menu_tally_sync"
+        name="Sync Operations"
+        parent="menu_tally_root"
+        sequence="20"
+        groups="group_tally_operator"
+    />
+
+    <!-- Tally > Reports (placeholder for Phase 10) -->
+    <menuitem
+        id="menu_tally_reports"
+        name="Reports &amp; Logs"
+        parent="menu_tally_root"
+        sequence="30"
+        groups="base.group_user"
+    />
+
+    <!-- Tally > Reports & Logs > Agent Sync Timeline (Phase 4) -->
+    <menuitem
+        id="menu_tally_agent_job"
+        name="Agent Sync Timeline"
+        parent="menu_tally_reports"
+        sequence="10"
+        action="action_tally_agent_job"
+        groups="group_tally_admin,group_tally_operator,base.group_system"
+    />
+</odoo>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tally Connection Tree View -->
+    <record model="ir.ui.view" id="view_tally_connection_tree">
+        <field name="name">tally.connection.tree</field>
+        <field name="model">tally.connection</field>
+        <field name="arch" type="xml">
+            <list string="Tally Connections" decoration-success="connection_status == 'success'" decoration-danger="connection_status == 'failed'" decoration-warning="connection_status == 'unknown'" decoration-info="connection_status == 'testing'">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="host"/>
+                <field name="port"/>
+                <field name="connection_status" widget="badge"/>
+                <field name="active" widget="boolean_toggle"/>
+                <field name="enabled_for_sync" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Tally Connection Form View -->
+    <record model="ir.ui.view" id="view_tally_connection_form">
+        <field name="name">tally.connection.form</field>
+        <field name="model">tally.connection</field>
+        <field name="arch" type="xml">
+            <form string="Tally Connection">
+                <header>
+                    <button name="action_test_connection" string="Test Connection" type="object" class="btn-primary"/>
+                    <button name="action_fetch_companies" string="Fetch Companies" type="object" class="btn-secondary"/>
+                    <button name="action_fetch_ledgers" string="Fetch Ledgers" type="object" class="btn-secondary" invisible="not enabled_for_sync"/>
+                    <button name="%(action_tally_product_import_wizard)d" string="Import Products from Tally" type="action" class="btn-secondary" invisible="not enabled_for_sync" context="{'default_connection_id': id}"/>
+                    <button name="%(action_tally_partner_import_wizard)d" string="Import Contacts from Tally" type="action" class="btn-secondary" invisible="not enabled_for_sync" context="{'default_connection_id': id}"/>
+                    <button name="%(action_tally_invoice_import_wizard)d" string="Import Sales Vouchers from Tally" type="action" class="btn-secondary" invisible="not enabled_for_sync" context="{'default_connection_id': id}"/>
+                    <button name="%(action_tally_bill_import_wizard)d" string="Import Purchase Vouchers from Tally" type="action" class="btn-secondary" invisible="not enabled_for_sync" context="{'default_connection_id': id}"/>
+                    <button name="%(action_tally_note_import_wizard)d" string="Import Credit/Debit Notes from Tally" type="action" class="btn-secondary" invisible="not enabled_for_sync" context="{'default_connection_id': id}"/>
+                    <button name="%(action_tally_payment_import_wizard)d" string="Import Receipts/Payments from Tally" type="action" class="btn-secondary" invisible="not enabled_for_sync" context="{'default_connection_id': id}"/>
+                    <button name="action_suggest_mappings_from_tally" string="Suggest Account/Tax/Journal Mappings" type="object" class="btn-secondary" invisible="not enabled_for_sync"/>
+                    <button name="action_open_stock_reconciliation" string="Stock Reconciliation" type="object" class="btn-secondary" invisible="not enabled_for_sync"/>
+                    <button name="action_open_opening_balance_wizard" string="Push Opening Balances" type="object" class="btn-secondary" invisible="not enabled_for_sync"/>
+                    <button name="action_generate_agent_token" string="Generate Agent Token" type="object" class="btn-secondary" invisible="connection_mode != 'agent'" confirm="This replaces any existing agent token for this connection - the previous one will stop working immediately. Continue?"/>
+                    <button name="action_view_agent_jobs" string="View Agent Sync Timeline" type="object" class="btn-secondary" invisible="connection_mode != 'agent'"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" class="oe_inline" placeholder="Connection Name"/></h1>
+                    </div>
+
+                    <!-- Basic Information -->
+                    <group>
+                        <group string="Basic Information">
+                            <field name="company_id"/>
+                            <field name="active"/>
+                            <field name="connection_mode"/>
+                        </group>
+
+                        <group string="Connection Details">
+                            <field name="host" placeholder="localhost or 192.168.1.10"/>
+                            <field name="port"/>
+                            <field name="timeout"/>
+                            <field name="tally_company_name" placeholder="Leave empty if single company"/>
+                        </group>
+                    </group>
+
+                    <!-- Agent (Preview) - Phase 1-3: device auth, job queue, and now
+                         liveness/Tally-reachability reporting from the agent itself. -->
+                    <group string="Agent (Preview)" invisible="connection_mode != 'agent'">
+                        <field name="active_agent_device_id" readonly="1"/>
+                        <field name="agent_device_ids" nolabel="1" colspan="2">
+                            <list create="0" delete="0" decoration-muted="not active">
+                                <field name="name" placeholder="(unnamed device)"/>
+                                <field name="device_id"/>
+                                <field name="agent_version" optional="show"/>
+                                <field name="active" widget="boolean_toggle" readonly="1"/>
+                                <field name="is_online" string="Online" widget="boolean_toggle" readonly="1"/>
+                                <field name="tally_reachable" string="Tally Reachable" widget="boolean_toggle" readonly="1"/>
+                                <field name="activated_at"/>
+                                <field name="last_seen_at"/>
+                                <button name="action_revoke" string="Revoke" type="object" icon="fa-ban" invisible="not active"/>
+                            </list>
+                        </field>
+                    </group>
+
+                    <!-- Status Section -->
+                    <group string="Connection Status">
+                        <field name="connection_status" widget="badge"/>
+                        <field name="last_tested_at"/>
+                        <field name="enabled_for_sync"/>
+                        <field name="last_auto_pull_date"/>
+                    </group>
+
+                    <!-- Stock Reconciliation -->
+                    <group string="Stock Mismatch Alert">
+                        <field name="stock_mismatch_threshold"/>
+                        <field name="stock_alert_user_id"/>
+                    </group>
+
+                    <!-- Error Message -->
+                    <group string="Last Error" invisible="not last_error">
+                        <field name="last_error" nolabel="1" widget="text" readonly="1"/>
+                    </group>
+
+                    <!-- Notes -->
+                    <group string="Notes">
+                        <field name="notes" nolabel="1" placeholder="Internal notes..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tally Connection Search View -->
+    <record model="ir.ui.view" id="view_tally_connection_search">
+        <field name="name">tally.connection.search</field>
+        <field name="model">tally.connection</field>
+        <field name="arch" type="xml">
+            <search string="Search Tally Connections">
+                <field name="name" string="Connection Name"/>
+                <field name="host" string="Host"/>
+                <field name="company_id"/>
+
+                <filter name="filter_active" string="Active" domain="[('active', '=', True)]"/>
+                <filter name="filter_inactive" string="Inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter name="filter_connected" string="Connected" domain="[('connection_status', '=', 'success')]"/>
+                <filter name="filter_failed" string="Failed" domain="[('connection_status', '=', 'failed')]"/>
+                <filter name="filter_untested" string="Not Tested" domain="[('connection_status', 'in', ['unknown', 'never_tested'])]"/>
+                <separator/>
+                <filter name="filter_enabled_sync" string="Enabled for Sync" domain="[('enabled_for_sync', '=', True)]"/>
+
+                <group>
+                    <filter name="group_by_company" string="Company" context="{'group_by': 'company_id'}"/>
+                    <filter name="group_by_status" string="Connection Status" context="{'group_by': 'connection_status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action: Tally Connections -->
+    <record model="ir.actions.act_window" id="action_tally_connection">
+        <field name="name">Tally Connections</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tally.connection</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_tally_connection_search"/>
+        <field name="context">{"search_default_filter_active": 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Tally connections yet.
+            </p>
+            <p>
+                Create a connection to configure Odoo's integration with a Tally instance.
+                <br/>
+                You will need:
+            </p>
+            <ul>
+                <li>Tally host address (localhost, IP, or FQDN on private network)</li>
+                <li>Tally HTTP port (default 9000)</li>
+                <li>Tally company name to synchronize with</li>
+            </ul>
+        </field>
+    </record>
+</odoo>

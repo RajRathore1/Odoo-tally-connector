@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="ir_cron_tally_stock_mismatch_check" model="ir.cron">
+        <field name="name">Tally: Check Stock Mismatch</field>
+        <field name="model_id" ref="model_tally_connection"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_check_stock_mismatch()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

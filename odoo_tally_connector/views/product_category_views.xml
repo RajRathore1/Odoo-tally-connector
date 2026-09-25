@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_product_category_form_tally">
+        <field name="name">product.category.form.tally</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <group name="first" position="inside">
+                <field name="tally_stock_group_name" class="oe_inline"/>
+            </group>
+        </field>
+    </record>
+</odoo>

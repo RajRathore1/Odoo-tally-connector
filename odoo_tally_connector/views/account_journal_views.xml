@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_account_journal_form_tally">
+        <field name="name">account.journal.form.tally</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="tally_ledger_name" placeholder="Exact Cash/Bank Ledger name in Tally"/>
+            </field>
+        </field>
+    </record>
+</odoo>

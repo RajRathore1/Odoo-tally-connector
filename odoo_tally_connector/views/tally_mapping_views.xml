@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Account Mapping -->
+    <record model="ir.ui.view" id="view_tally_account_mapping_list">
+        <field name="name">tally.account.mapping.list</field>
+        <field name="model">account.account</field>
+        <field name="arch" type="xml">
+            <list string="Account Mapping" editable="bottom" decoration-muted="tally_ledger_name">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="account_type"/>
+                <field name="tally_ledger_name" placeholder="Exact Ledger name in Tally"/>
+            </list>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_tally_account_mapping_search">
+        <field name="name">tally.account.mapping.search</field>
+        <field name="model">account.account</field>
+        <field name="arch" type="xml">
+            <search string="Search Accounts">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="tally_ledger_name"/>
+                <filter name="filter_unmapped" string="Not Mapped to Tally" domain="[('tally_ledger_name', '=', False)]"/>
+                <filter name="filter_mapped" string="Mapped to Tally" domain="[('tally_ledger_name', '!=', False)]"/>
+                <group>
+                    <filter name="group_by_account_type" string="Account Type" context="{'group_by': 'account_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_tally_account_mapping">
+        <field name="name">Account Mapping</field>
+        <field name="res_model">account.account</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_tally_account_mapping_list"/>
+        <field name="search_view_id" ref="view_tally_account_mapping_search"/>
+        <field name="context">{"search_default_filter_unmapped": 0}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Map each Odoo account to its exact Tally Ledger name here, in bulk.
+            </p>
+        </field>
+    </record>
+
+    <!-- Tax Mapping -->
+    <record model="ir.ui.view" id="view_tally_tax_mapping_list">
+        <field name="name">tally.tax.mapping.list</field>
+        <field name="model">account.tax</field>
+        <field name="arch" type="xml">
+            <list string="Tax Mapping" editable="bottom" decoration-muted="tally_ledger_name">
+                <field name="name"/>
+                <field name="type_tax_use"/>
+                <field name="amount"/>
+                <field name="tally_ledger_name" placeholder="Exact Tax Ledger name in Tally (e.g. Output CGST)"/>
+            </list>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_tally_tax_mapping_search">
+        <field name="name">tally.tax.mapping.search</field>
+        <field name="model">account.tax</field>
+        <field name="arch" type="xml">
+            <search string="Search Taxes">
+                <field name="name"/>
+                <field name="tally_ledger_name"/>
+                <filter name="filter_unmapped" string="Not Mapped to Tally" domain="[('tally_ledger_name', '=', False)]"/>
+                <filter name="filter_mapped" string="Mapped to Tally" domain="[('tally_ledger_name', '!=', False)]"/>
+                <group>
+                    <filter name="group_by_type_tax_use" string="Tax Scope" context="{'group_by': 'type_tax_use'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_tally_tax_mapping">
+        <field name="name">Tax Mapping</field>
+        <field name="res_model">account.tax</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_tally_tax_mapping_list"/>
+        <field name="search_view_id" ref="view_tally_tax_mapping_search"/>
+        <field name="context">{"search_default_filter_unmapped": 0}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Map each Odoo tax to its exact Tally Tax Ledger name here, in bulk.
+            </p>
+        </field>
+    </record>
+
+    <!-- Journal Mapping -->
+    <record model="ir.ui.view" id="view_tally_journal_mapping_list">
+        <field name="name">tally.journal.mapping.list</field>
+        <field name="model">account.journal</field>
+        <field name="arch" type="xml">
+            <list string="Journal Mapping" editable="bottom" decoration-muted="tally_ledger_name">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="code"/>
+                <field name="tally_ledger_name" placeholder="Exact Cash/Bank Ledger name in Tally"/>
+            </list>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_tally_journal_mapping_search">
+        <field name="name">tally.journal.mapping.search</field>
+        <field name="model">account.journal</field>
+        <field name="arch" type="xml">
+            <search string="Search Journals">
+                <field name="name"/>
+                <field name="tally_ledger_name"/>
+                <filter name="filter_cash_bank" string="Cash/Bank Only" domain="[('type', 'in', ['cash', 'bank'])]"/>
+                <filter name="filter_unmapped" string="Not Mapped to Tally" domain="[('tally_ledger_name', '=', False)]"/>
+                <filter name="filter_mapped" string="Mapped to Tally" domain="[('tally_ledger_name', '!=', False)]"/>
+                <group>
+                    <filter name="group_by_type" string="Type" context="{'group_by': 'type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_tally_journal_mapping">
+        <field name="name">Journal Mapping</field>
+        <field name="res_model">account.journal</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_tally_journal_mapping_list"/>
+        <field name="search_view_id" ref="view_tally_journal_mapping_search"/>
+        <field name="context">{"search_default_filter_cash_bank": 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Map each Cash/Bank journal to its exact Tally Ledger name here, in bulk.
+            </p>
+        </field>
+    </record>
+</odoo>

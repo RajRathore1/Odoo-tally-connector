@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_tally_opening_balance_wizard_form">
+        <field name="name">tally.opening.balance.wizard.form</field>
+        <field name="model">tally.opening.balance.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Push Opening Balances">
+                <header>
+                    <button name="action_refresh" string="Refresh" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <field name="connection_id" invisible="1"/>
+                    <group>
+                        <field name="as_of_date"/>
+                    </group>
+                    <p class="text-muted">
+                        One-time onboarding tool: computes each already-mapped account's balance as
+                        of the date above from its own posted entries, then pushes that figure as
+                        the opening balance of the matching Tally ledger - so historical totals agree
+                        between the two systems from day one. Run this once when a connection first
+                        goes live, not on a recurring basis; pushing it again later will overwrite
+                        whatever opening balance is currently set in Tally.
+                    </p>
+                    <field name="line_ids">
+                        <list editable="bottom" decoration-success="push_status == 'success'" decoration-danger="push_status == 'failed'">
+                            <field name="account_id" readonly="1"/>
+                            <field name="tally_ledger_name" readonly="1"/>
+                            <field name="balance"/>
+                            <field name="push_status" widget="badge" readonly="1"/>
+                            <field name="push_error" readonly="1"/>
+                            <button name="action_push" string="Push" type="object" icon="fa-arrow-right"
+                                    invisible="push_status == 'success'"/>
+                        </list>
+                    </field>
+                </sheet>
+                <footer>
+                    <button string="Close" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

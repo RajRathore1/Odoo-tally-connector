@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_tax_form_tally">
+        <field name="name">account.tax.form.tally</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <field name="description" position="after">
+                <field name="tally_ledger_name" placeholder="Exact Tax Ledger name in Tally (e.g. Output CGST)"/>
+            </field>
+        </field>
+    </record>
+</odoo>
