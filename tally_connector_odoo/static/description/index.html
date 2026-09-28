@@ -14,9 +14,45 @@ Post an invoice, bill, payment, journal or note in Odoo and it lands in Tally on
 matched by a stable GUID so re-running a sync confirms a voucher, never duplicates it.
 </p>
 <p><strong>Version</strong> 19.0.1.1.0 &nbsp;|&nbsp; <strong>License</strong> AGPL-3 &nbsp;|&nbsp; <strong>Category</strong> Accounting / Integrations</p>
-<p><a href="https://digimonk.in/agent-download" target="_blank"><code>&#8681; Download the Tally Agent</code></a></p>
 </div>
 </div>
+
+<hr/>
+
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+<table class="table table-bordered">
+<thead>
+<tr><th colspan="2" class="text-center">The Local Tally Agent</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>What it is</strong></td>
+<td>A small, free program you install on the same PC where Tally runs. It is not an Odoo module and not part of Tally &mdash; it is a separate, standalone bridge between the two.</td>
+</tr>
+<tr>
+<td><strong>Why you need it</strong></td>
+<td>Odoo is usually cloud-hosted; Tally runs on a local PC/LAN with no public address. The Agent solves this without a VPN or an open inbound port: it runs on the Tally PC and only ever calls <em>out</em> to Odoo, so it works behind any firewall or NAT unmodified.</td>
+</tr>
+<tr>
+<td><strong>How it works</strong></td>
+<td>The Agent polls Odoo every few seconds for pending sync jobs, sends each one to your local Tally over <code>localhost</code>, and reports the result back &mdash; no manual step once it's running, and it starts automatically on login.</td>
+</tr>
+<tr>
+<td><strong>When you need it</strong></td>
+<td>Only for <strong>Agent mode</strong> (see Architecture below). If Odoo already has direct network access to the Tally machine &mdash; a site VPN, Tailscale, or a shared LAN &mdash; use <strong>Direct mode</strong> instead and skip the Agent entirely.</td>
+</tr>
+<tr>
+<td colspan="2" class="text-center">
+<a href="https://digimonk.in/agent-download" target="_blank"><code>&#8681; Download the Tally Agent (free, Windows)</code></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<hr/>
 
 <div class="row" style="margin-top:16px;">
 <div class="col-md-8 col-md-offset-2">
